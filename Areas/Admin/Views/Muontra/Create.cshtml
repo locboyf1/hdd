@@ -1,0 +1,66 @@
+@model Company.Areas.Admin.Models.Muontra
+@using Company.Areas.Admin.Mtra;
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Thêm danh sách mượn trả</h2>
+    </div>
+    <div class="container shadow p-5">
+        <form method="Post" asp-action="Create">
+            <div class="form-row">
+               <div class="form-group col-md-6 mb-3">
+                    <label>Mã nhân viên</label>
+                    <input type="text" class="form-control" asp-for="MaNV" placeholder="Nhập ..">
+                    <span asp-validation-for="MaNV" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Mã sách</label>
+                    <div class="">
+                        <select asp-for="Masach" asp-items="ViewBag.ListSach" class="px-1 py-2 rounded-2 w-100" id="id" name="Masach">
+                           <option value="-1">-- Chọn --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Mã độc giả</label>
+                    <div class="">
+                        <select asp-for="Madocgia" asp-items="ViewBag.Madocgia" class="px-1 py-2 rounded-2 w-100" id="id" name="Madocgia">
+                           <option value="-1">-- Chọn --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Ngày mượn</label>
+                    <input type="date" class="form-control" asp-for="Ngaymuon"
+                            placeholder="Nhập ...">
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Ngày trả</label>
+                    <input type="date" class="form-control" asp-for="Ngaytra"
+                            placeholder="Nhập ...">
+                </div>
+
+            </div>
+
+            <div class="form-group col-md-6 mb-3">
+                    <label>Phí mượn</label>
+                    <input type="text" class="form-control" asp-for="Phimuon" placeholder="Nhập ...">
+                    <span asp-validation-for="Phimuon" class="alert-danger"></span>
+                </div>
+
+            <a asp-controller="Menu" asp-action="Index" class="btn btn-lg btn-warning p-2">
+                <i class="bi bi-arrow-left-circle"></i>
+                Quay lại
+            </a>
+
+            <button type="submit" class="btn btn-lg btn-primary p-2">
+                <i class="bi bi-file-plus-fill"></i> Lưu thông tin
+            </button>
+        </form>
+    </div>

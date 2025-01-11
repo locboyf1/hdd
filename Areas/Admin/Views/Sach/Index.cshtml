@@ -1,0 +1,74 @@
+@using Company.Areas.Admin.Models
+@model IList<Sach>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h2>Danh sách các chức năng</h2>
+
+            <p>
+                <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="Sach" asp-action="Create">
+                <i class="bi bi-file-earmark-text me-1"></i>Thêm sách</a>
+                <section class="section dashboard">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card recent-sales overflow-auto">
+                                <div class="card-body mt-4">
+                                    <table class="table table-borderless datatable">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-1 text-center">Mã sách</th>
+                                                <th class="col-1 text-center">Tên sách</th>
+                                                <th class="col-1 text-center">Tác giả</th>
+                                                <th class="col-1 text-center">Thể loại</th>
+                                                <th class="col-1 text-center">NXB</th>
+                                                <th class="col-1 text-center">Năm</th>
+                                                <th class="col-1 text-center">Số lượng</th>
+                                                <th class="col-1 text-center">Gía mượn</th>
+                                                <th class="col-1 text-center">TT</th>
+                                                <th class="col-1 text-center">Mô tả</th>
+                                                <th class="col-1 text-center">Ảnh</th>
+                                                <th class="col-1 text-center">Status</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach(var item in Model)
+                                            {
+                                                <tr>
+                                                    <td class="text-center" scope="row">@item.Masach</td>
+                                                    <td class="text-left text-primary" scope="row"><a asp-area="Admin"
+                                                        asp-asp-controller="Sach" asp-action="Details"
+                                                        asp-route-itemid="@item.Masach">@item.Tensach</a></td>
+                                                    <td class="text-center" scope="row">@item.Matacgia</td>
+                                                    <td class="text-center" scope="row">@item.Matheloai</td>
+                                                    <td class="text-center" scope="row">@item.MaNXB</td>
+                                                    <td class="text-center" scope="row">@item.Namxuatban</td>
+                                                    <td class="text-center" scope="row">@item.Soluong</td>
+                                                    <td class="text-center" scope="row">@item.Giamuon</td>
+                                                    <td class="text-center" scope="row">@item.Tinhtrang</td>
+                                                    <td class="text-center" scope="row">@item.Tomtat</td>
+                                                    <td class="text-center" scope="row">@item.Anh</td>
+                                                    <td class="text-center" scope="row">@item.IsActive</td>
+                                                    <td class="text-center" scope="row">
+                                                        <a asp-area="Admin" asp-controller="Sach" asp-action="Edit"
+                                                            asp-route-id="@item.Masach" class="btn btn-primary btn-sm"
+                                                            title="Sửa sách"><i class="bi bi-pencil"></i></a>
+
+                                                        <a asp-area="Admin" asp-controller="Sach" asp-action="Delete"
+                                                            asp-route-id="@item.Masach" class="btn btn-danger btn-sm"
+                                                            title="Xóa sách"><i class="bi bi-trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </p>
+        </div>
+    </main>

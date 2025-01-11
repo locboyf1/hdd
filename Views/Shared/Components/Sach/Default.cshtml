@@ -1,0 +1,23 @@
+@using Company.Utilities;
+@model List<Company.Models.viewSach>;
+<div class="row gy-4">
+
+ @{
+  @foreach(var sach in Model.Take(6).ToList()) {
+    string url =  Functions.TitleSlugGeneration("sach", sach?.Tensach, sach.Masach);
+     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+    <div class="service-item item-cyan position-relative">
+      <div class="" style="height: 250px;">
+        <img src="@sach.Anh" class="h-100 w-100 object-fit-cover"/>
+      </div>
+      <a href="/Sach/view/@sach.Masach" class="stretched-link">
+        <h2>@sach.Tensach</h2>
+      </a>
+        <p>@sach.Tomtat</p>
+      
+    </div>
+  </div><!-- End Service Item -->
+  }
+ }
+</div>    
+

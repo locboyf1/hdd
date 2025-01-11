@@ -1,0 +1,35 @@
+@model Company.Areas.Admin.Models.Theloai
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Thêm thể loại</h2>
+    </div>
+    <div class="container shadow p-5">
+        <form method="Post" asp-action="Create">
+            <div class="form-row">
+                <div class="form-group col-md-6 mb-3">
+                    <label>Tên thể loại</label>
+                    <input type="text" class="form-control" asp-for="Tentheloai" placeholder="Nhập tên thể loại...">
+                    <span asp-validation-for="Tentheloai" class="alert-danger"></span>
+                </div>
+
+            </div>
+
+            <div class="form-group col-md-6 mb-3">
+                    <label>Mô tả</label>
+                    <input type="text" class="form-control" asp-for="Mota" placeholder="Nhập mô tả...">
+                    <span asp-validation-for="Mota" class="alert-danger"></span>
+                </div>
+
+            <a asp-controller="Menu" asp-action="Index" class="btn btn-lg btn-warning p-2">
+                <i class="bi bi-arrow-left-circle"></i>
+                Quay lại
+            </a>
+
+            <button type="submit" class="btn btn-lg btn-primary p-2">
+                <i class="bi bi-file-plus-fill"></i> Lưu thông tin
+            </button>
+        </form>
+    </div>

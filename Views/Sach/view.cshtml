@@ -1,0 +1,57 @@
+@using Company.Areas.Admin.Models;
+@model BookView;
+ <main class="main">
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-12">
+
+          <!-- Blog Details Section -->
+          <section id="blog-details" class="blog-details section">
+            <div class="container">
+          
+              <article class="article">
+
+                <div class="post-img">
+                  <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+                </div>
+                <div class="row justify-content-center align-items-center">
+                  <div class="col-md-8">
+                    <h2 class="title">@Model.Tensach</h2>
+                  </div>
+                  <div class="col-md-4  " align="end">
+                    <form asp-action = "hoadon" asp-controller="Sach" >
+                    <input method="Post" asp-action="hoadon" name="id" type="number" hidden />
+                    <a ><button type="submit" asp-action="hoadon" class=" btn btn-danger">Mượn sách</button></a>
+                    </form>
+                  </div>
+                </div>
+                <div class="meta-top">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">@Model.Tentacgia</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2020-01-01">@Model.Namxuatban</time></a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">@Model.Tentheloai</a></li>
+                  </ul>
+                </div><!-- End meta top -->
+
+                <div class="content">          
+                  <blockquote>
+                    <p>
+                      @Model.Tomtat
+                    </p>
+                  </blockquote>
+                  <img src=@Model.Anh class="img-fluid" alt="">
+
+            </div>
+          </section><!-- /Comment Form Section -->
+
+        </div>
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </main>

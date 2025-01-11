@@ -1,0 +1,41 @@
+@model Company.Areas.Admin.Models.Muontra
+
+@using Company.Utilities;
+@{
+    var gia = ViewBag.Gia;
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Thông tin hóa đơn</h2>
+    </div>
+    <div class="container shadow p-5">
+        <form method="Post" asp-action="Index">
+            <div class="form-row">
+                   
+</div>         
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Ngày trả</label>
+                    <input type="date" class="form-control" asp-for="Ngaytra"
+                            placeholder="Ngày trả sách" >
+                </div>  
+             <div class="form-group col-md-6 mb-3">
+                    <label>Ngày trả</label>
+                    <input type="text" class="form-control" asp-for="Phimuon" value="@gia"
+                            placeholder="Ngày trả sách" >
+                </div>
+
+                
+
+            <a asp-controller="Menu" asp-action="Index" class="btn btn-lg btn-warning p-2">
+                <i class="bi bi-arrow-left-circle"></i>
+                Quay lại
+            </a>
+
+            <button type="submit" class="btn btn-lg btn-primary p-2">
+                <i class="bi bi-file-plus-fill"></i> Mượn sách
+            </button>
+        </form>
+    </div>
+</main>

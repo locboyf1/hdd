@@ -1,0 +1,56 @@
+@using Company.Areas.Admin.Models
+@model IList<Theloai>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h2>Danh sách các chức năng</h2>
+
+            <p>
+                <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="Theloai" asp-action="Create">
+                <i class="bi bi-file-earmark-text me-1"></i>Thêm thể loại</a>
+                <section class="section dashboard">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card recent-sales overflow-auto">
+                                <div class="card-body mt-4">
+                                    <table class="table table-borderless datatable">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-1 text-center">#</th>
+                                                <th class="col-2 text-center">Tên thể loại</th>
+                                                <th class="col-5 text-center">Mô tả</th>
+                                                <th class="col-2 text-center">Chức năng</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach(var item in Model)
+                                            {
+                                                <tr>
+                                                    <td class="text-center" scope="row">@item.Matheloai</td>
+                                                    <td class="text-left text-primary" scope="row"><a asp-area="Admin"
+                                                        asp-asp-controller="Theloai" asp-action="Details"
+                                                        asp-route-itemid="@item.Matheloai">@item.Tentheloai</a></td>
+                                                    <td class="text-center" scope="row">@item.Mota</td>                                              
+                                                    <td class="text-center" scope="row">
+                                                        <a asp-area="Admin" asp-controller="Theloai" asp-action="Edit"
+                                                            asp-route-id="@item.Matheloai" class="btn btn-primary btn-sm"
+                                                            title="Sửa thể loại"><i class="bi bi-pencil"></i></a>
+                                                        <a asp-area="Admin" asp-controller="Theloai" asp-action="Delete"
+                                                            asp-route-id="@item.Matheloai" class="btn btn-danger btn-sm"
+                                                            title="Xóa thể loại"><i class="bi bi-trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </p>
+        </div>
+    </main>
